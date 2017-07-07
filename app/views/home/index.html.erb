@@ -1,6 +1,27 @@
-<h1>Home Page</h1>
-
+<h1>Photography by Wandering Tricia</h1>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <nav>
+        <p><%= link_to "Contact", new_home_path %></p>
+        <p><a href='https://www.instagram.com/wanderingtricia/?hl=en' target="_blank"><%= image_tag 'instagram.png' %></a></p>
+      </nav>
+    </div>
+    <div class="col-sm-6 bio-col">
+      <%= image_tag "tricia.jpg", id: "tricia" %>
+      <h5>Oregon Native & Traveler</h5>
+      <p>Offering landscape, hospitality and interior photography.</p>
+    </div>
+  </div>
+</div>
+<br>
+<hr>
 <% @images.each do |image| %>
-  <p><%= link_to image_tag(image.avatar.url(:medium)), user_image_path(image.user_id, image.id) %></p>
-  <h5><%= image.name %></h5>
+<div class="row images">
+  <%= link_to image_tag(image.avatar.url, :size => '600'), user_image_path(image.user_id, image.id) %>
+  <div class="caption">
+    <h5><%= image.name %></h5>
+  </div>
+</div>
 <% end %>

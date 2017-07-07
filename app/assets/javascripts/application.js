@@ -16,3 +16,4 @@
 //= require bootstrap.min
 //= require_tree .
 //= bootstrap-sprockets
+//= require scripts

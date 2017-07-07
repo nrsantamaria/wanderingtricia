@@ -6,4 +6,8 @@ class HomeController < ApplicationController
   def index
     @images = Image.all
   end
+
+  def new
+
+  end
 end

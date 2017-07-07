@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :home
   root to: 'home#index'
 end
