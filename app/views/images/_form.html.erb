@@ -1,0 +1,31 @@
+<%= render 'layouts/errors', :object => @image %>
+
+<%= form_for [@user, @image] do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :portfolio %>
+    <%= f.select :portfolio, options_for_select([
+      [ 'Hospitality', 'Hospitality'],
+      [ 'Interior', 'Interior'],
+      [ 'Landscape', 'Landscape']
+      ]), {}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.number_field :price, {class: "form-control"} %>
+  </div>
+  <span class="btn btn-default btn-file">
+    <%= f.label :browse %>
+    <%= f.file_field :avatar%>
+  </span>
+  <br>
+  <br>
+  <p><%= f.submit nil, {class: "btn btn-default"} %></p>
+<% end %>

@@ -1,0 +1,22 @@
+<h1>Image Page</h1>
+<br>
+<div class="row">
+  <div class="col-sm-6">
+    <%= image_tag(@image.avatar.url(:medium)) %>
+  </div>
+  <div class="col-sm-6">
+    <h4><%= @image.name %></h4>
+    <p><%= @image.description %></p>
+    <p><%= @image.portfolio %></p>
+    <p>$ <%= @image.price %></p>
+  </div>
+</div>
+
+<hr>
+
+<% if is_admin? %>
+  <%= link_to "Edit Image", edit_user_image_path(@image.user_id, @image) %> |
+  <%= link_to "Delete Image", user_image_path(@image.user_id, @image),
+          :data => {:confirm => "Are you sure?",
+            :method => "delete"} %>
+<% end %>

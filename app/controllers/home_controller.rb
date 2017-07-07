@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     redirect_to '/' unless is_admin? || is_current_user?
   end
 
-  # def index
-  #   @images = Image.all
-  # end
+  def index
+    @images = Image.all
+  end
 end

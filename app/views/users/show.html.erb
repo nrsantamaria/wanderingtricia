@@ -1,1 +1,10 @@
 <h1><%= @user.username %>'s Profile Page</h1>
+
+<% if is_admin? %>
+  <% @user.images.each do |image| %>
+    <p><%= link_to image_tag(image.avatar.url(:thumb)), user_image_path(image.user_id, image.id) %></p>
+    <h5><%= image.name %></h5>
+  <% end %>
+
+  <%= link_to "Add Image", new_user_image_path(@user) %>
+<% end %>
