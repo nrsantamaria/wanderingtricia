@@ -5,18 +5,38 @@
     <%= image_tag(@image.avatar.url(:medium)) %>
   </div>
   <div class="col-sm-6">
-    <h4><%= @image.name %></h4>
+    <h4><em><%= @image.name %></em></h4>
     <p><%= @image.description %></p>
-    <p><%= @image.portfolio %></p>
+    <p>Portfolio: <%= @image.portfolio %></p>
     <p>$ <%= @image.price %></p>
+    <% if is_admin? %>
+      <%= link_to "Edit Image", edit_user_image_path(@image.user_id, @image) %> |
+      <%= link_to "Delete Image", user_image_path(@image.user_id, @image),
+              :data => {:confirm => "Are you sure?",
+                :method => "delete"} %>
+    <% end %>
   </div>
 </div>
 
 <hr>
 
-<% if is_admin? %>
-  <%= link_to "Edit Image", edit_user_image_path(@image.user_id, @image) %> |
-  <%= link_to "Delete Image", user_image_path(@image.user_id, @image),
-          :data => {:confirm => "Are you sure?",
-            :method => "delete"} %>
+
+
+<% if @image.reviews.any? %>
+  <% @image.reviews.each do |review| %>
+    <p><strong>Author:</strong> <%= review.author %></p>
+    <p><strong>Review:</strong> <%= review.content_body %></p>
+    <% if is_admin? %>
+    <%= link_to "Delete Review", image_review_path(@image, review),
+              :data => {:confirm => "Are you sure?",
+                :method => "delete"} %>
+
+    <% end %>
+    <hr>
+  <% end %>
+<% else %>
+  <p>There are no reviews yet!</p>
+<% end %>
+<% if current_user %>
+  <%= link_to "Add Review", new_image_review_path(@image) %>
 <% end %>

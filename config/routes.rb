@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     resources :images
   end
 
+  resources :images do
+    resources :reviews
+  end
+
   root to: 'home#index'
 end
