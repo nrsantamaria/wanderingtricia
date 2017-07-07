@@ -12,6 +12,14 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :home
+  resources :home do
+    collection do
+      get :all_images
+      get :landscape
+      get :hospitality
+      get :interior
+    end
+  end
+
   root to: 'home#index'
 end

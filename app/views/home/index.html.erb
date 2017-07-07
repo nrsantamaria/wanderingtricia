@@ -3,14 +3,23 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <nav>
-        <p><%= link_to "Contact", new_home_path %></p>
-        <p><a href='https://www.instagram.com/wanderingtricia/?hl=en' target="_blank"><%= image_tag 'instagram.png' %></a></p>
-      </nav>
+        <nav>
+          <h4><%= link_to "All Images", all_images_home_index_path %></h4>
+          <h3>Specific Portfolios</h3>
+          <ul>
+            <li><h4><%= link_to "Hospitality", hospitality_home_index_path %></h4></li>
+            <li><h4><%= link_to "Interior", interior_home_index_path %></h4></li>
+            <li><h4><%= link_to "Landscape", landscape_home_index_path %></h4></li>
+          </ul>
+
+          <h4><%= link_to "Contact", new_home_path %></h4>
+          <h4><a href='https://www.instagram.com/wanderingtricia/?hl=en' target="_blank"><%= image_tag 'instagram.png' %></a></h4>
+        </nav>
+
     </div>
     <div class="col-sm-6 bio-col">
       <%= image_tag "tricia.jpg", id: "tricia" %>
-      <h5>Oregon Native & Traveler</h5>
+      <h4>Oregon Native & Traveler</h4>
       <p>Offering landscape, hospitality and interior photography.</p>
     </div>
   </div>
@@ -25,3 +34,7 @@
   </div>
 </div>
 <% end %>
+<hr>
+<footer class="home-footer">
+  <p>All Imagery Copyright Tricia Kaady 2017, All Rights Reserved</p>
+</footer>
