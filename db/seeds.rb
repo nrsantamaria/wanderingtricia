@@ -105,3 +105,13 @@ image9.price = Faker::Number.between(20, 100)
 image9.avatar = File.new('app/assets/images/hospitality/Schnitz.jpg')
 image9.user_id = 1
 image9.save!
+
+Review.destroy_all
+
+40.times do |index|
+  Review.create!(author: Faker::HarryPotter.character,
+                content_body: Faker::Hipster.sentence(10, false, 4),
+                image_id: Faker::Number.between(1, 9))
+end
+
+p "Created #{Review.count} reviews"

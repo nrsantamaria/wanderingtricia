@@ -51,3 +51,7 @@ Run `rails s` for a dev server. Navigate to `http://localhost:3000/`. The app wi
 ```
 Copyright (c) 2017 *Nicky Santamaria*
 ```
+
+![Home page](app/assets/images/home.png)
+![Image](app/assets/images/image.png)
+![Admin](app/assets/images/admin.png)
