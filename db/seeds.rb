@@ -15,13 +15,13 @@ user.admin = true
 user.id = 1
 user.save!
 
-user = User.new
-user.username = "user"
-user.email = "user@email.com"
-user.password = '123456'
-user.admin = false
-user.id = 2
-user.save!
+user2 = User.new
+user2.username = "user"
+user2.email = "user@email.com"
+user2.password = '123456'
+user2.admin = false
+user2.id = 2
+user2.save!
 
 Image.destroy_all
 

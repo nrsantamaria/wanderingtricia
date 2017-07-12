@@ -1,4 +1,11 @@
 class ReviewsController < ApplicationController
+  before_action :only => [:destroy] do
+    redirect_to '/' unless is_admin?
+  end
+  before_action :only => [:new] do
+    redirect_to '/' unless current_user && is_admin?
+  end
+
   def new
     @image = Image.find(params[:image_id])
     @review = Review.new
@@ -11,21 +18,6 @@ class ReviewsController < ApplicationController
       redirect_to image_path(@review.image)
     else
       render :new
-    end
-  end
-
-  def edit
-    @image = Image.find(params[:image_id])
-    @review = Review.find(params[:id])
-  end
-
-  def update
-    @image = Image.find(params[:image_id])
-    @review = Review.find(params[:id])
-    if @review.update(review_params)
-      redirect_to image_path(@review.image)
-    else
-      render :edit
     end
   end
 

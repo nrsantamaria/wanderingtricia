@@ -3,18 +3,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   helper_method :is_admin?
-  helper_method :is_current_user?
 
   def is_admin?
     current_user && current_user.admin
-  end
-
-  def is_current_user?
-    if current_user
-      current_user.id == image.user_id
-    else
-      false
-    end
   end
 
 # Custom parameters / Strong Parameters
